@@ -31,7 +31,6 @@ yum install java -y
 wget https://downloads.apache.org/kafka/3.2.3/kafka_2.13-3.2.3.tgz
 tar -xvf kafka_2.13-3.2.3.tgz
 sudo mv kafka_2.13-3.2.3.tgz /opt/kafka
-cd /opt/kafka
 ```
 ##### Create a data directory to store Kafka messages and Zookeeper data.
 
@@ -40,12 +39,7 @@ Step- 1. Create a New Directory for Kafka and Zookeeper
 sudo mkdir -p /data/kafka
 sudo mkdir -p /data/zookeeper
 ```
-Step- 2. Change ownership of those directories now:
-```
-sudo chown -R kafka:kafka /data//kafka
-sudo chown -R zookeeper:zookeeper /data/zookeeper
-```
-C. Create a Zookeeper ID on each VM.
+B. Create a Zookeeper ID on each VM.
 ```
 Create a file in /zookeeper first VM named "myid" with the ID as  "1":
 echo "1" > /data/zookeeper/myid
@@ -138,11 +132,9 @@ WantedBy=multi-user.target
 - Save and close the file.
 Step- 2. Make the file /etc/init.d/kafka executable. Also, change the ownership and start the service:
 ```
-sudo chmod +x /etc/init.d/kafka
-sudo chown root:root /etc/init.d/kafka
-sudo update-rc.d kafka defaults
-sudo service kafka start
-sudo service kafka status
+sudo systemctl start kafka
+sudo systemctl enable kafka
+sudo systemctl status kafka
 ```
 
 ## Zookeeper :
