@@ -20,6 +20,10 @@ Zookeeper helps maintain consensus in the cluster, which basically means all the
 - Install open JDK
 - Disable Swap
 
+```
+yum install java -y
+```
+
 ## Now, lets set up the Kafka Cluster:
 ##### Download the Kafka Packages
 
