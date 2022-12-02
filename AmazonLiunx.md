@@ -99,6 +99,7 @@ zookeeper.connect=X.X.X.X:2181,X.X.X.X:2181,X.X.X.X:2181
 ```
 Step- 3. open the zookeeper.properties file on all VM’s.
 ```
+> /opt/zookeer/config/zookeeper.properties
 vi /opt/zookeer/config/zookeeper.properties
 ```
 Step- 4. Paste the following configuration into the zookeeper.properties :-
@@ -119,9 +120,9 @@ autopurge.purgeInterval=1
 metricsProvider.className=org.apache.zookeeper.metrics.prometheus.PrometheusMetricsProvider
 metricsProvider.httpPort=7000
 metricsProvider.exportJvmInfo=true
-server.1=10.10.10.10:2888:3888
-server.2=10.10.10.11:2888:3888
-server.3=10.10.10.12:2888:3888
+server.1=X.X.X.X:2888:3888
+server.2=X.X.X.X:2888:3888
+server.3=X.X.X.X:2888:3888
 4lw.commands.whitelist=*
 ```
 E. Create the init.d scripts to start and stop for Kafka and Zookeeper service
