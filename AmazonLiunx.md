@@ -94,7 +94,11 @@ Step- 3. open the zookeeper.properties file on all VM’s.
 ```
 vi /opt/zookeer/config/zookeeper.properties
 ```
-Step- 4. Paste the following configuration into the zookeeper.properties :
+Step- 4. Paste the following configuration into the zookeeper.properties :-
+X.X.X.X - Zookeeper1, 2, 3
+server.1=X.X.X.X:2888:3888
+server.2=X.X.X.X:2888:3888
+server.3=X.X.X.X:2888:3888
 ```
 tickTime=2000
 dataDir=/data/zookeeper/data
