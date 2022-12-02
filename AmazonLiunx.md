@@ -58,10 +58,13 @@ vim config/server.properties
 ```
 Step- 2. Update broker.id and advertised.listners into server.properties configuration as shown below:
 Note: Add the below configuration on all VM’s. Run each command in the parallel console.
+broker.id=x (X value 1,2,3,....)
+X.X.X.X:9092 - Kafka Broker IP
+zookeeper.connect=X.X.X.X:2181,X.X.X.X:2181,X.X.X.X:2181 ( X.X.X.X - Zookeper 1 , X.X.X.X - Zookeper 2 , X.X.X.X - Zookeper 3 )
 ```
-broker.id=1
+broker.id=X
 listeners=PLAINTEXT://0.0.0.0:9092
-advertised.listeners=PLAINTEXT://10.10.10.10:9092
+advertised.listeners=PLAINTEXT://X.X.X.X:9092
 num.network.threads=3
 num.io.threads=8
 socket.send.buffer.bytes=102400
