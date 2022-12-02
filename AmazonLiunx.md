@@ -34,7 +34,7 @@ tar -xvf kafka_2.13-3.2.3.tgz
 mv kafka_2.13-3.2.3 /opt/kafka
 
 
-https://dlcdn.apache.org/zookeeper/zookeeper-3.6.3/apache-zookeeper-3.6.3.tar.gz
+wget https://dlcdn.apache.org/zookeeper/zookeeper-3.6.3/apache-zookeeper-3.6.3.tar.gz
 tar -xvf apache-zookeeper-3.6.3.tar.gz
 mv apache-zookeeper-3.6.3 /opt/zookeeper
 ```
