@@ -126,9 +126,9 @@ server.3=X.X.X.X:2888:3888
 ```
 E. Create the init.d scripts to start and stop for Kafka and Zookeeper service
 Kafka:
-Step- 1. Open file /etc/init.d/kafka on each VM on virtual box and paste in the following:
+Step- 1. Open file on each VM on virtual box and paste in the following:
 
-- sudo vim /etc/systemd/system/kafka.service
+- vim /etc/systemd/system/kafka.service
 ```
 [Unit]
 Description=Apache Kafka server (broker)
@@ -155,7 +155,7 @@ sudo systemctl status kafka
 
 ## Zookeeper :
 Step- 1. Open file /etc/systemd/system/zookeeper.service on all VM’s on virtual box and paste in the following:
-- sudo vim /etc/systemd/system/zookeeper.service
+- vim /etc/systemd/system/zookeeper.service
 
 ```
 [Unit]
