@@ -99,7 +99,7 @@ zookeeper.connect=X.X.X.X:2181,X.X.X.X:2181,X.X.X.X:2181
 Step- 3. open the zookeeper.properties file on all VM’s.
 ```
 rm -rf /opt/zookeeper/conf/zoo_sample.cfg
-vim /opt/zookeer/conf/zookeeper.properties
+vim /opt/zookeeper/conf/zookeeper.properties
 ```
 Step- 4. Paste the following configuration into the zookeeper.properties :-
 X.X.X.X - Zookeeper1, 2, 3
