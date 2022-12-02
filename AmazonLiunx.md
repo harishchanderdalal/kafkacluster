@@ -135,7 +135,7 @@ Description=Apache Kafka server (broker)
 
 [Service]
 Type=simple
-User=kafka
+User=root
 LimitNOFILE=150000
 LimitNPROC=100000
 ExecStart=/bin/sh -c '/opt/kafka_2.13-3.2.3/bin/kafka-server-start.sh /opt/kafka_2.13-3.2.3/config/server.properties > /data/kafka/logs/kafka-boot.log 2>&1'
@@ -163,7 +163,7 @@ Description=zookeeper
 
 [Service]
 Type=forking
-User=zookeeper
+User=root
 ExecStart=/opt/zookeeper-3.6.3/bin/zkServer.sh start
 ExecStop=/opt/zookeeper-3.6.3/bin/zkServer.sh stop
 
