@@ -59,9 +59,8 @@ echo "3" > /data/zookeeper/myid
 D. Modify the Kafka and Zookeeper Configuration Files on all VM’s
 Step- 1. Open the server.properties file:
 ```
-cd /opt/kafka
-> config/server.properties
-vim config/server.properties
+> /opt/kafka/config/server.properties
+vim /opt/kafka/config/server.properties
 ```
 Step- 2. Update broker.id and advertised.listners into server.properties configuration as shown below:
 Note: Add the below configuration on all VM’s. Run each command in the parallel console.
@@ -99,8 +98,8 @@ zookeeper.connect=X.X.X.X:2181,X.X.X.X:2181,X.X.X.X:2181
 ```
 Step- 3. open the zookeeper.properties file on all VM’s.
 ```
-> /opt/zookeer/config/zookeeper.properties
-vi /opt/zookeer/config/zookeeper.properties
+rm -rf /opt/zookeeper/conf/zoo_sample.cfg
+vim /opt/zookeer/conf/zookeeper.properties
 ```
 Step- 4. Paste the following configuration into the zookeeper.properties :-
 X.X.X.X - Zookeeper1, 2, 3
