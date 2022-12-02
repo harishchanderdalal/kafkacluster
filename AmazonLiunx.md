@@ -136,8 +136,8 @@ Description=zookeeper
 [Service]
 Type=forking
 User=root
-ExecStart=/opt/zookeeper-3.6.3/bin/zkServer.sh start
-ExecStop=/opt/zookeeper-3.6.3/bin/zkServer.sh stop
+ExecStart=/opt/zookeeper/bin/zkServer.sh start
+ExecStop=/opt/zookeeper/bin/zkServer.sh stop
 
 Restart=on-failure
 RestartSec=30
