@@ -53,6 +53,7 @@ D. Modify the Kafka and Zookeeper Configuration Files on all VM’s
 Step- 1. Open the server.properties file:
 ```
 cd /opt/kafka
+> config/server.properties
 vim config/server.properties
 ```
 Step- 2. Update broker.id and advertised.listners into server.properties configuration as shown below:
