@@ -32,6 +32,11 @@ sudo -i
 wget https://downloads.apache.org/kafka/3.2.3/kafka_2.13-3.2.3.tgz
 tar -xvf kafka_2.13-3.2.3.tgz
 mv kafka_2.13-3.2.3 /opt/kafka
+
+
+https://dlcdn.apache.org/zookeeper/zookeeper-3.6.3/apache-zookeeper-3.6.3.tar.gz
+tar -xvf apache-zookeeper-3.6.3.tar.gz
+mv apache-zookeeper-3.6.3 /opt/zookeeper
 ```
 ##### Create a data directory to store Kafka messages and Zookeeper data.
 
