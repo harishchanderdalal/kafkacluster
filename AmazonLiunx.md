@@ -124,34 +124,6 @@ server.2=X.X.X.X:2888:3888
 server.3=X.X.X.X:2888:3888
 4lw.commands.whitelist=*
 ```
-E. Create the init.d scripts to start and stop for Kafka and Zookeeper service
-Kafka:
-Step- 1. Open file on each VM on virtual box and paste in the following:
-
-- vim /etc/systemd/system/kafka.service
-```
-[Unit]
-Description=Apache Kafka server (broker)
-
-[Service]
-Type=simple
-User=root
-LimitNOFILE=150000
-LimitNPROC=100000
-ExecStart=/bin/sh -c '/opt/kafka/bin/kafka-server-start.sh /opt/kafka/config/server.properties > /data/kafka/logs/kafka-boot.log 2>&1'
-ExecStop=/opt/kafka/bin/kafka-server-stop.sh
-Restart=on-abnormal
-
-[Install]
-WantedBy=multi-user.target
-```
-- Save and close the file.
-Step- 2. Make the file /etc/init.d/kafka executable. Also, change the ownership and start the service:
-```
-sudo systemctl start kafka
-sudo systemctl enable kafka
-sudo systemctl status kafka
-```
 
 ## Zookeeper :
 Step- 1. Open file /etc/systemd/system/zookeeper.service on all VM’s on virtual box and paste in the following:
@@ -182,6 +154,35 @@ sudo chmod +x /etc/systemd/system/zookeeper.service
 sudo chown root:root /etc/systemd/system/zookeeper.service
 sudo systemctl start zookeeper 
 sudo systemctl enable zookeeper 
+```
+
+E. Create the init.d scripts to start and stop for Kafka and Zookeeper service
+Kafka:
+Step- 1. Open file on each VM on virtual box and paste in the following:
+
+- vim /etc/systemd/system/kafka.service
+```
+[Unit]
+Description=Apache Kafka server (broker)
+
+[Service]
+Type=simple
+User=root
+LimitNOFILE=150000
+LimitNPROC=100000
+ExecStart=/bin/sh -c '/opt/kafka/bin/kafka-server-start.sh /opt/kafka/config/server.properties > /data/kafka/logs/kafka-boot.log 2>&1'
+ExecStop=/opt/kafka/bin/kafka-server-stop.sh
+Restart=on-abnormal
+
+[Install]
+WantedBy=multi-user.target
+```
+- Save and close the file.
+Step- 2. Make start the service:
+```
+sudo systemctl start kafka
+sudo systemctl enable kafka
+sudo systemctl status kafka
 ```
 F. Create a Topic
 Create a topic named test:
