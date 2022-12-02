@@ -150,8 +150,6 @@ Save and close the file.
 
 Step- 2. Make the file /etc/init.d/zookeeper executable. Also, change the ownership and start the service:
 ```
-sudo chmod +x /etc/systemd/system/zookeeper.service
-sudo chown root:root /etc/systemd/system/zookeeper.service
 sudo systemctl start zookeeper 
 sudo systemctl enable zookeeper 
 ```
