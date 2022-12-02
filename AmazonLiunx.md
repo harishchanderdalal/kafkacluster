@@ -88,7 +88,7 @@ delete.topic.enable=false
 auto.create.topics.enable=false
 compression.type=gzip
 zookeeper.connection.timeout.ms=10000
-zookeeper.connect=10.10.10.11:2181,10.10.10.11:2181,10.10.10.12:2181
+zookeeper.connect=X.X.X.X:2181,X.X.X.X:2181,X.X.X.X:2181
 ```
 Step- 3. open the zookeeper.properties file on all VM’s.
 ```
