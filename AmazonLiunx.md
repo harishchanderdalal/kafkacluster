@@ -28,9 +28,10 @@ yum install java -y
 ##### Download the Kafka Packages
 
 ```
+sudo -i
 wget https://downloads.apache.org/kafka/3.2.3/kafka_2.13-3.2.3.tgz
 tar -xvf kafka_2.13-3.2.3.tgz
-sudo mv kafka_2.13-3.2.3.tgz /opt/kafka
+mv kafka_2.13-3.2.3 /opt/kafka
 ```
 ##### Create a data directory to store Kafka messages and Zookeeper data.
 
