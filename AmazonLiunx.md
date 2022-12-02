@@ -138,8 +138,8 @@ Type=simple
 User=root
 LimitNOFILE=150000
 LimitNPROC=100000
-ExecStart=/bin/sh -c '/opt/kafka_2.13-3.2.3/bin/kafka-server-start.sh /opt/kafka_2.13-3.2.3/config/server.properties > /data/kafka/logs/kafka-boot.log 2>&1'
-ExecStop=/opt/kafka_2.13-3.2.3/bin/kafka-server-stop.sh
+ExecStart=/bin/sh -c '/opt/kafka/bin/kafka-server-start.sh /opt/kafka/config/server.properties > /data/kafka/logs/kafka-boot.log 2>&1'
+ExecStop=/opt/kafka/bin/kafka-server-stop.sh
 Restart=on-abnormal
 
 [Install]
