@@ -60,7 +60,7 @@ server.2=X.X.X.X:2888:3888
 server.3=X.X.X.X:2888:3888
 ```
 tickTime=2000
-dataDir=/data/zookeeper/data
+dataDir=/data/zookeeper
 dataLogDir=/data/zookeeper/logs
 maxClientCnxns=60
 clientPort=2181
