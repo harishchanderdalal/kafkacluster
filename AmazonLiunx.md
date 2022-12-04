@@ -29,8 +29,8 @@ yum install java -y
 ##### Download the Zookeeper Packages
 ```
 wget https://downloads.apache.org/zookeeper/zookeeper-3.6.3/apache-zookeeper-3.6.3-bin.tar.gz
-tar -xvf apache-zookeeper-3.6.3.tar.gz
-mv apache-zookeeper-3.6.3 /opt/zookeeper
+tar -xvf apache-zookeeper-3.6.3-bin.tar.gz
+mv apache-zookeeper-3.6.3-bin /opt/zookeeper
 ```
 ##### Create a data directory to store Kafka messages and Zookeeper data.
 
