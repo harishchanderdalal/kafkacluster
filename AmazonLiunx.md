@@ -120,7 +120,7 @@ mv kafka_2.13-3.2.3 /opt/kafka
 ```
 Step- 1. Create a New Directory for Kafka and Zookeeper
 ```
-sudo mkdir -p /data/kafka
+sudo mkdir -p /data/kafka/logs
 ```
 
 D. Modify the Kafka and Zookeeper Configuration Files on all VM’s
