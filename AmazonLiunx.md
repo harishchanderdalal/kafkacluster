@@ -25,18 +25,10 @@ yum install java -y
 ```
 
 ## Now, lets set up the Kafka Cluster:
-##### Download the Kafka Packages
-
-```
-sudo -i
-wget https://downloads.apache.org/kafka/3.2.3/kafka_2.13-3.2.3.tgz
-tar -xvf kafka_2.13-3.2.3.tgz
-mv kafka_2.13-3.2.3 /opt/kafka
-```
 
 ##### Download the Zookeeper Packages
 ```
-wget https://dlcdn.apache.org/zookeeper/zookeeper-3.6.3/apache-zookeeper-3.6.3.tar.gz
+wget https://downloads.apache.org/zookeeper/zookeeper-3.6.3/apache-zookeeper-3.6.3-bin.tar.gz
 tar -xvf apache-zookeeper-3.6.3.tar.gz
 mv apache-zookeeper-3.6.3 /opt/zookeeper
 ```
@@ -56,46 +48,7 @@ echo "2" > /data/zookeeper/myid
 Create a file in /zookeeper Third VM named "myid" with the ID as  "3":
 echo "3" > /data/zookeeper/myid
 ```
-D. Modify the Kafka and Zookeeper Configuration Files on all VM’s
-Step- 1. Open the server.properties file:
-```
-> /opt/kafka/config/server.properties
-vim /opt/kafka/config/server.properties
-```
-Step- 2. Update broker.id and advertised.listners into server.properties configuration as shown below:
-Note: Add the below configuration on all VM’s. Run each command in the parallel console.
-broker.id=x (X value 1,2,3,....)
-X.X.X.X:9092 - Kafka Broker IP
-zookeeper.connect=X.X.X.X:2181,X.X.X.X:2181,X.X.X.X:2181 ( X.X.X.X - Zookeper 1 , X.X.X.X - Zookeper 2 , X.X.X.X - Zookeper 3 )
-```
-broker.id=X
-listeners=PLAINTEXT://0.0.0.0:9092
-advertised.listeners=PLAINTEXT://X.X.X.X:9092
-num.network.threads=3
-num.io.threads=8
-socket.send.buffer.bytes=102400
-socket.receive.buffer.bytes=102400
-socket.request.max.bytes=104857600
-log.dirs=/data/kafka/data
-num.partitions=10
-num.recovery.threads.per.data.dir=1
-offsets.topic.replication.factor=3
-transaction.state.log.replication.factor=3
-transaction.state.log.min.isr=1
-default.replication.factor=3
-min.insync.replicas=1
-log.retention.hours=168
-log.segment.bytes=104857600
-log.retention.check.interval.ms=2000
-log.roll.hours=168
-log.retention.check.interval.hours=1
-log.cleaner.enable=true
-delete.topic.enable=false
-auto.create.topics.enable=false
-compression.type=gzip
-zookeeper.connection.timeout.ms=10000
-zookeeper.connect=X.X.X.X:2181,X.X.X.X:2181,X.X.X.X:2181
-```
+
 Step- 3. open the zookeeper.properties file on all VM’s.
 ```
 rm -rf /opt/zookeeper/conf/zoo_sample.cfg
@@ -153,6 +106,61 @@ Step- 2. Make the file /etc/init.d/zookeeper executable. Also, change the owners
 sudo systemctl start zookeeper 
 sudo systemctl enable zookeeper 
 ```
+
+
+
+# kafka
+
+##### Download the Kafka Packages
+
+```
+sudo -i
+wget https://downloads.apache.org/kafka/3.2.3/kafka_2.13-3.2.3.tgz
+tar -xvf kafka_2.13-3.2.3.tgz
+mv kafka_2.13-3.2.3 /opt/kafka
+```
+
+D. Modify the Kafka and Zookeeper Configuration Files on all VM’s
+Step- 1. Open the server.properties file:
+```
+> /opt/kafka/config/server.properties
+vim /opt/kafka/config/server.properties
+```
+Step- 2. Update broker.id and advertised.listners into server.properties configuration as shown below:
+Note: Add the below configuration on all VM’s. Run each command in the parallel console.
+broker.id=x (X value 1,2,3,....)
+X.X.X.X:9092 - Kafka Broker IP
+zookeeper.connect=X.X.X.X:2181,X.X.X.X:2181,X.X.X.X:2181 ( X.X.X.X - Zookeper 1 , X.X.X.X - Zookeper 2 , X.X.X.X - Zookeper 3 )
+```
+broker.id=X
+listeners=PLAINTEXT://0.0.0.0:9092
+advertised.listeners=PLAINTEXT://X.X.X.X:9092
+num.network.threads=3
+num.io.threads=8
+socket.send.buffer.bytes=102400
+socket.receive.buffer.bytes=102400
+socket.request.max.bytes=104857600
+log.dirs=/data/kafka/data
+num.partitions=10
+num.recovery.threads.per.data.dir=1
+offsets.topic.replication.factor=3
+transaction.state.log.replication.factor=3
+transaction.state.log.min.isr=1
+default.replication.factor=3
+min.insync.replicas=1
+log.retention.hours=168
+log.segment.bytes=104857600
+log.retention.check.interval.ms=2000
+log.roll.hours=168
+log.retention.check.interval.hours=1
+log.cleaner.enable=true
+delete.topic.enable=false
+auto.create.topics.enable=false
+compression.type=gzip
+zookeeper.connection.timeout.ms=10000
+zookeeper.connect=X.X.X.X:2181,X.X.X.X:2181,X.X.X.X:2181
+```
+
 
 E. Create the init.d scripts to start and stop for Kafka and Zookeeper service
 Kafka:
