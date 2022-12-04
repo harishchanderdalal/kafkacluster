@@ -36,7 +36,6 @@ mv apache-zookeeper-3.6.3-bin /opt/zookeeper
 
 Step- 1. Create a New Directory for Kafka and Zookeeper
 ```
-sudo mkdir -p /data/kafka
 sudo mkdir -p /data/zookeeper
 ```
 B. Create a Zookeeper ID on each VM.
@@ -118,6 +117,10 @@ sudo -i
 wget https://downloads.apache.org/kafka/3.2.3/kafka_2.13-3.2.3.tgz
 tar -xvf kafka_2.13-3.2.3.tgz
 mv kafka_2.13-3.2.3 /opt/kafka
+```
+Step- 1. Create a New Directory for Kafka and Zookeeper
+```
+sudo mkdir -p /data/kafka
 ```
 
 D. Modify the Kafka and Zookeeper Configuration Files on all VM’s
