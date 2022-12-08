@@ -17,30 +17,30 @@ cd /tmp/kafka
 ### Start the ZooKeeper service
 ```
 # Start the ZooKeeper service
-$ /tmp/kafka_2.13-3.2.3/bin/zookeeper-server-start.sh /tmp/kafka_2.13-3.2.3/config/zookeeper.properties
+$ /tmp/kafka/bin/zookeeper-server-start.sh /tmp/kafka/config/zookeeper.properties
 ```
 Open New Terminal and Login
 ### Start the Kafka broker service
 ```
-$ /tmp/kafka_2.13-3.2.3/bin/kafka-server-start.sh /tmp/kafka_2.13-3.2.3/config/server.properties
+$ /tmp/kafka/bin/kafka-server-start.sh /tmp/kafka/config/server.properties
 ```
 
 Open New Terminal and Login
 ### How to create TOPIC
 ```
-$ /tmp/kafka_2.13-3.2.3/bin/kafka-topics.sh --create --topic harish --bootstrap-server localhost:9092
+$ /tmp/kafka/bin/kafka-topics.sh --create --topic harish --bootstrap-server localhost:9092
 ```
 
 ### Topic Produce
 ```
-$ /tmp/kafka_2.13-3.2.3/bin/kafka-console-producer.sh --topic harish --bootstrap-server localhost:9092
+$ /tmp/kafka/bin/kafka-console-producer.sh --topic harish --bootstrap-server localhost:9092
 BMW
 Audi
 ```
 
 ### Consume 
 ```
-$ /tmp/kafka_2.13-3.2.3/bin/kafka-console-consumer.sh --topic harish --from-beginning --bootstrap-server localhost:9092
+$ /tmp/kafka/bin/kafka-console-consumer.sh --topic harish --from-beginning --bootstrap-server localhost:9092
 BMW
 Audi
 ```
