@@ -6,13 +6,17 @@ Kafka was meant to operate in a cluster, and we should be creating a cluster if 
 
 # Topic:
 Messages are published to a ‘Topic’ and there is a partition associated with each ‘Topic’. Kafka stores and organizes messages across its system and essentially a collection of messages are called Topics.
+
 # Brokers:
 Broker in Kafka holds the messages that have been written by the producer before being consumed by the ‘consumer’.
 Kafka cluster contains multiple brokers. A broker has a partition and as already communicated each partition is associated with a topic. The brokers receive the messages and they are stored in the “brokers” for ’n’ number of days (which can be configured). After the ’n’ of days has expired, the messages are discarded. It is important to state here again that Kafka does not check whether each consumer or consumer group has read the messages.
+
 # Producer:
 Different producers like Apps, DBMS, NoSQL write data to the Kafka cluster and publishes messages to a Kafka topic.
+
 # Consumer:
 After the “producers” have produced the message and sent it to the Kafka brokers, the consumers then read the message. A consumer or consumer group is/are subscribed to different topics and in turn, they read from the partition for the topics to which they are subscribed. If a broker goes down, then other brokers support the system and make sure everything is running smoothly.
+
 # ZooKeeper:
 The Zookeeper’s primary responsibility is to coordinate with the different components of the Kafka cluster. The producer has the job to give the message to the broker leader/active controller which in turn writes the message onto itself and also takes care of replicating it to other brokers.
 Zookeeper helps maintain consensus in the cluster, which basically means all the brokers are aware of each other and know which one is the controller.
@@ -28,13 +32,15 @@ yum install java -y
 
 ##### Download the Zookeeper Packages
 ```
-wget https://downloads.apache.org/zookeeper/zookeeper-3.6.3/apache-zookeeper-3.6.3-bin.tar.gz
-tar -xvf apache-zookeeper-3.6.3-bin.tar.gz
-mv apache-zookeeper-3.6.3-bin /opt/zookeeper
+https://downloads.apache.org/zookeeper/
+
+wget https://downloads.apache.org/zookeeper/zookeeper-3.6.4/apache-zookeeper-3.6.4-bin.tar.gz
+tar -xvf apache-zookeeper-3.6.4-bin.tar.gz
+mv apache-zookeeper-3.6.4-bin /opt/zookeeper
 ```
 ##### Create a data directory to store Kafka messages and Zookeeper data.
 
-Step- 1. Create a New Directory for Kafka and Zookeeper
+Step- 1. Create a New Directory for Zookeeper
 ```
 sudo mkdir -p /data/zookeeper
 ```
